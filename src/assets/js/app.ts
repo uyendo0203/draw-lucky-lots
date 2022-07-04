@@ -158,7 +158,7 @@ import SoundEffects from '@js/SoundEffects';
     slot.shouldRemoveWinnerFromNameList = removeNameFromListCheckbox.checked;
     soundEffects.mute = !enableSoundCheckbox.checked;
     onSettingsClose();
-    console.log(333, slot.names)
+    // console.log(333, slot.names)
   });
 
   // Click handler for "Discard and close" button for setting page
@@ -175,7 +175,7 @@ import SoundEffects from '@js/SoundEffects';
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data);
+        // console.log('Success:', data);
         if (data.status === true) {
           const result: any[] = [];
           for (let i = 0; i < data.data.length; i++) {
@@ -212,8 +212,14 @@ import SoundEffects from '@js/SoundEffects';
   const onLoadLuckyType = () => {
     const wrapAttr = document.querySelector(".wrap")
     const search = location.search.split('?lucky=')[1]
+    console.log(search)
     wrapAttr?.classList.remove('active');
-    document.querySelector(`#${search}`)?.classList.add('active')
+    if (search != undefined) {
+      document.querySelector(`#${search}`)?.classList.add('active')
+    } else {
+      document.querySelector(`#nem-1`)?.classList.add('active')
+    }
+
 
     const hasActiveStep2 = document.querySelector(`.step-2`)?.classList.contains('active');
     if (hasActiveStep2) {
@@ -222,7 +228,6 @@ import SoundEffects from '@js/SoundEffects';
   };
   window.onload = function () {
     onLoadLuckyType()
-
   };
 
 })();

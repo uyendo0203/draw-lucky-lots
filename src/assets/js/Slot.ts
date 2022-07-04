@@ -191,7 +191,7 @@ export default class Slot {
 
     reelContainer.appendChild(fragment);
     const winner = document.querySelector("#winner")
-    console.log('Winner: ', randomNames[randomNames.length - 1][0], randomNames[randomNames.length - 1][1]);
+    // console.log('Winner: ', randomNames[randomNames.length - 1][0], randomNames[randomNames.length - 1][1]);
     let formData = new FormData();
     formData.append('code', randomNames[randomNames.length - 1][1]);
     fetch('https://ritavo-mega-depot.xyz/api/hide', {
@@ -200,11 +200,11 @@ export default class Slot {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data.data);
+        // console.log('Success:', data.data);
 
       })
       .catch((error) => {
-        console.error('Error:', error);
+        // console.error('Error:', error);
       });
 
     // Remove winner form name list if necessary
@@ -214,7 +214,7 @@ export default class Slot {
       ), 1);
     }
 
-    console.log('Remaining: ', this.nameList);
+    // console.log('Remaining: ', this.nameList);
 
     // Play the spin animation
     const animationPromise = new Promise((resolve) => {
