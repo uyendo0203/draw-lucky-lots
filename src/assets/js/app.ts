@@ -158,6 +158,7 @@ import SoundEffects from '@js/SoundEffects';
     slot.shouldRemoveWinnerFromNameList = removeNameFromListCheckbox.checked;
     soundEffects.mute = !enableSoundCheckbox.checked;
     onSettingsClose();
+    console.log(333, slot.names)
   });
 
   // Click handler for "Discard and close" button for setting page
@@ -176,6 +177,33 @@ import SoundEffects from '@js/SoundEffects';
   startRotationLuckyButton.addEventListener('click', onStartRotationLucky);
 
 
+  const loadListUser = () => {
+    fetch('https://ritavo-mega-depot.xyz/api/visitors', {
+      method: 'GET', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data.data);
+        if (data.status === true) {
+          const result: any[] = [];
+          for (let i = 0; i < data.data.length; i++) {
+            // result.push(data.data[i].code)
+            result.push(data.data[i].name)
+          }
+          slot.names = result;
+          console.log(44444, slot.names)
+        }
+
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
   // load loai giai thuong theo URL 
   const onLoadLuckyType = () => {
     const wrapAttr = document.querySelector(".wrap")
@@ -184,10 +212,13 @@ import SoundEffects from '@js/SoundEffects';
     document.querySelector(`#${search}`)?.classList.add('active')
 
     const hasActiveStep2 = document.querySelector(`.step-2`)?.classList.contains('active');
-    if(hasActiveStep2){
+    if (hasActiveStep2) {
       document.querySelector(".uyendo")?.classList.add('none-border')
     }
   };
-  window.onload = function () { onLoadLuckyType() };
+  window.onload = function () {
+    onLoadLuckyType()
+    loadListUser()
+  };
 
 })();
