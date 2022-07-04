@@ -2,10 +2,14 @@
 <div class="main">
     <div class="control-group xxx">
         <button class="icon-button icon-button--small" id="fullscreen-button">
-            <svg-icon class="red big" svg-icon-name="fullscreen"></svg-icon>
+            <span class="red big">
+                {% include '../assets/images/fullscreen.svg' %}
+            </span>
         </button>
         <button class="icon-button icon-button--small" id="settings-button">
-            <svg-icon class="red big" svg-icon-name="settings"></svg-icon>
+            <span class="red big">
+                {% include '../assets/images/settings.svg' %}
+            </span>
         </button>
     </div>
     <canvas class="confetti" id="confetti-canvas"></canvas>
