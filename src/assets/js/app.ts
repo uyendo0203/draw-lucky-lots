@@ -5,6 +5,7 @@ import SoundEffects from '@js/SoundEffects';
 // Initialize slot machine
 (() => {
   const drawButton = document.getElementById('draw-button') as HTMLButtonElement | null;
+  const startRotationLuckyButton = document.getElementById('start-rotation-lucky') as HTMLButtonElement;
   const fullscreenButton = document.getElementById('fullscreen-button') as HTMLButtonElement | null;
   const settingsButton = document.getElementById('settings-button') as HTMLButtonElement | null;
   const settingsWrapper = document.getElementById('settings') as HTMLDivElement | null;
@@ -146,6 +147,7 @@ import SoundEffects from '@js/SoundEffects';
   });
 
   // Click handler for "Settings" button
+
   settingsButton.addEventListener('click', onSettingsOpen);
 
   // Click handler for "Save" button for setting page
@@ -160,4 +162,32 @@ import SoundEffects from '@js/SoundEffects';
 
   // Click handler for "Discard and close" button for setting page
   settingsCloseButton.addEventListener('click', onSettingsClose);
+
+  // ========================UYENDO======================================
+  // on click start rotation
+  const onStartRotationLucky = () => {
+    const stepNumber = document.querySelector(".step-number")
+    const step2 = document.querySelector(".step-2")
+    stepNumber?.classList.remove('active')
+    step2?.classList.add('active')
+
+    document.querySelector(".uyendo")?.classList.add('none-border')
+  };
+  startRotationLuckyButton.addEventListener('click', onStartRotationLucky);
+
+
+  // load loai giai thuong theo URL 
+  const onLoadLuckyType = () => {
+    const wrapAttr = document.querySelector(".wrap")
+    const search = location.search.split('?lucky=')[1]
+    wrapAttr?.classList.remove('active');
+    document.querySelector(`#${search}`)?.classList.add('active')
+
+    const hasActiveStep2 = document.querySelector(`.step-2`)?.classList.contains('active');
+    if(hasActiveStep2){
+      document.querySelector(".uyendo")?.classList.add('none-border')
+    }
+  };
+  window.onload = function () { onLoadLuckyType() };
+
 })();

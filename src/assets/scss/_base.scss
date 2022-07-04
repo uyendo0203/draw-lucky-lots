@@ -26,6 +26,7 @@ body {
     'Microsoft JhengHei UI', 'Microsoft YaHei', 'Microsoft YaHei UI',
     'PingFang TC', 'Lantinghei TC', 'Heiti TC', 'Apple LiGothic', 'PMingLiU',
     Arial, sans-serif;
+    background-color: #56070a;
 }
 
 #app {
@@ -68,9 +69,10 @@ body {
   @include flex-center;
   padding: 3.125rem 0;
   width: 100%;
-  max-width: $screen-xl;
+  // max-width: $screen-xl;
   flex: 1 1 0;
   min-height: min-content;
+  z-index: 1;
 }
 
 .footer {

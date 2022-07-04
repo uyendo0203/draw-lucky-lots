@@ -181,7 +181,9 @@
     width: 100%;
   }
 }
-
+.settings__panel {
+  background: red;
+}
 .theme--red .settings__panel {
   background-color: $color-settings-background-red;
   color: $color-text-light;

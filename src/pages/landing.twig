@@ -1,6 +1,5 @@
-{# {% include '../mixins/icons/pug' %} #}
 <div class="main">
-    <div class="control-group xxx">
+    <div class="control-group">
         <button class="icon-button icon-button--small" id="fullscreen-button">
             <span class="red big">
                 {% include '../assets/images/fullscreen.svg' %}
@@ -11,22 +10,6 @@
                 {% include '../assets/images/settings.svg' %}
             </span>
         </button>
-    </div>
-    <canvas class="confetti" id="confetti-canvas"></canvas>
-    <div id="lucky-draw">
-        <img class="title" src="~@images/title.svg" alt="Lucky Draw">
-        <div class="slot">
-            <div class="slot__outer">
-                <div class="slot__inner"> 
-                    <div class="slot__shadow"></div>
-                    <div class="reel" id="reel"></div>
-                </div>
-            </div>
-            <div class="sunburst" id="sunburst">
-                <img src="~@images/sunburst.svg" alt="sunburst">
-            </div>
-        </div>
-        <button class="solid-button" id="draw-button">Draw</button>
     </div>
     <div class="settings" id="settings">
         <div class="settings__panel" id="settings-panel">
@@ -56,9 +39,78 @@
                     </label>
                 </div>
             </div>
-            <div class="settings__panel__group">
+            <div class="settings__panel__group panel-list-button">
                 <button class="solid-button solid-button" id="settings-save">Save</button>
                 <button class="solid-button solid-button--danger" id="settings-close">Discard and close</button>
+            </div>
+        </div>
+    </div>
+    <canvas class="confetti" id="confetti-canvas"></canvas>
+    <div class="step">
+        <div class="step-number step-1 active">
+            <div class="logo">
+                <img class="title" src="~@images/logo.png" alt="Logo">
+            </div>
+            <div class="main-content">
+                <div class="wrap" id="may-chay-bo">
+                    <figure class="left">
+                        <img class="" src="~@images/maychaybo_text.png" alt="Logo">
+                    </figure>
+                    <figure class="right">
+                        <img class="award" src="~@images/maychaybo_image.png" alt="Logo">
+                        {#
+                        <img class="award" src="~@images/maychaybo-no-star.png" alt="Logo">
+                        #}
+                    </figure>
+                </div>
+                <div class="wrap" id="xe-dap">
+                    <figure class="left">
+                        <img class="" src="~@images/xe-dap-text.png" alt="Logo">
+                    </figure>
+                    <figure class="right">
+                        <img class="award" src="~@images/xe-dap.png" alt="Logo">
+                    </figure>
+                </div>
+                <div class="wrap" id="nem-1">
+                    <figure class="left">
+                        <img class="" src="~@images/nem-1-text.png" alt="Logo">
+                    </figure>
+                    <figure class="right">
+                        <img class="award" src="~@images/nem-1.png" alt="Logo">
+                    </figure>
+                </div>
+                <div class="wrap" id="nem-2">
+                    <figure class="left">
+                        <img class="" src="~@images/nem-2-text.png" alt="Logo">
+                    </figure>
+                    <figure class="right">
+                        <img class="award" src="~@images/nem-2.png" alt="Logo">
+                    </figure>
+                </div>
+                <div class="button-start">
+                    <button class="solid-button button-custom" id="start-rotation-lucky">Bắt đầu</button>
+                </div>
+            </div>
+        </div>
+        <div class="step-number step-2 ">
+            <div id="lucky-draw">
+                <img class="step-2-logo" src="~@images/logo.png" alt="Rita Võ">
+                <div class="slot">
+                    <h1 class="step-2-title">
+                        <img src="~@images/step-2-text.png" alt="Rita Võ">
+                    </h1>
+                    <div class="slot__outer">
+                        <div class="slot__inner">
+                            <div class="slot__inner-wrap">
+                                <div class="reel" id="reel"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sunburst" id="sunburst">
+                        <img src="~@images/sunburst.svg" alt="sunburst">
+                    </div>
+                </div>
+                <button class="solid-button button-custom" id="draw-button">Quay Số</button>
             </div>
         </div>
     </div>

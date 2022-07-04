@@ -9,8 +9,6 @@
     "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitThis": false,
     "noImplicitAny": false,
