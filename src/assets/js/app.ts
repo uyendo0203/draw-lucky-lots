@@ -165,6 +165,35 @@ import SoundEffects from '@js/SoundEffects';
   settingsCloseButton.addEventListener('click', onSettingsClose);
 
   // ========================UYENDO======================================
+
+  const loadListUser = () => {
+    fetch('https://ritavo-mega-depot.xyz/api/visitors', {
+      method: 'GET', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        if (data.status === true) {
+          const result: any[] = [];
+          for (let i = 0; i < data.data.length; i++) {
+            let obj = [
+              data.data[i].name,
+              data.data[i].code
+            ]
+            result.push(obj)
+          }
+          slot.names = result;
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+
   // on click start rotation
   const onStartRotationLucky = () => {
     const stepNumber = document.querySelector(".step-number")
@@ -173,36 +202,11 @@ import SoundEffects from '@js/SoundEffects';
     step2?.classList.add('active')
 
     document.querySelector(".uyendo")?.classList.add('none-border')
+    loadListUser()
   };
   startRotationLuckyButton.addEventListener('click', onStartRotationLucky);
 
 
-  const loadListUser = () => {
-    fetch('https://ritavo-mega-depot.xyz/api/visitors', {
-      method: 'GET', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // body: JSON.stringify(data),
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data.data);
-        if (data.status === true) {
-          const result: any[] = [];
-          for (let i = 0; i < data.data.length; i++) {
-            // result.push(data.data[i].code)
-            result.push(data.data[i].name)
-          }
-          slot.names = result;
-          console.log(44444, slot.names)
-        }
-
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }
 
   // load loai giai thuong theo URL 
   const onLoadLuckyType = () => {
@@ -218,7 +222,7 @@ import SoundEffects from '@js/SoundEffects';
   };
   window.onload = function () {
     onLoadLuckyType()
-    loadListUser()
+
   };
 
 })();

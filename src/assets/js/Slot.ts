@@ -138,6 +138,7 @@ export default class Slot {
   private static shuffleNames<T = unknown>(array: T[]): T[] {
     const keys = Object.keys(array) as unknown[] as number[];
     const result: T[] = [];
+
     for (let k = 0, n = keys.length; k < array.length && n > 0; k += 1) {
       // eslint-disable-next-line no-bitwise
       const i = Math.random() * n | 0;
@@ -183,14 +184,28 @@ export default class Slot {
 
     randomNames.forEach((name) => {
       const newReelItem = document.createElement('div');
-      newReelItem.innerHTML = name;
+      newReelItem.innerHTML = name[0];
+      newReelItem.setAttribute('data-code', name[1])
       fragment.appendChild(newReelItem);
     });
 
     reelContainer.appendChild(fragment);
+    const winner = document.querySelector("#winner")
+    console.log('Winner: ', randomNames[randomNames.length - 1][0], randomNames[randomNames.length - 1][1]);
+    let formData = new FormData();
+    formData.append('code', randomNames[randomNames.length - 1][1]);
+    fetch('https://ritavo-mega-depot.xyz/api/hide', {
+      method: 'POST', // or 'PUT'
+      body: formData,
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data.data);
 
-    console.log('Displayed items: ', randomNames);
-    console.log('Winner: ', randomNames[randomNames.length - 1]);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
 
     // Remove winner form name list if necessary
     if (shouldRemoveWinner) {
