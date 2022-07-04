@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+        <title>{{APP_META_TITLE}}</title>
+        {% include './partials/gtm-script.html' %}
+    </head>
+    <body>
+        {% include './partials/gtm-noscript.html' %}
+        <div id="app" class="theme--red">
+            {% include './pages/landing.twig' %}
+            {% include './partials/footer.twig' %}
+        </div>
+    </body>
+</html>

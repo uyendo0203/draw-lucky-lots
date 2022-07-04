@@ -1,0 +1,61 @@
+{# {% include '../mixins/icons/pug' %} #}
+<div class="main">
+    <div class="control-group xxx">
+        <button class="icon-button icon-button--small" id="fullscreen-button">
+            <svg-icon class="red big" svg-icon-name="fullscreen"></svg-icon>
+        </button>
+        <button class="icon-button icon-button--small" id="settings-button">
+            <svg-icon class="red big" svg-icon-name="settings"></svg-icon>
+        </button>
+    </div>
+    <canvas class="confetti" id="confetti-canvas"></canvas>
+    <div id="lucky-draw">
+        <img class="title" src="~@images/title.svg" alt="Lucky Draw">
+        <div class="slot">
+            <div class="slot__outer">
+                <div class="slot__inner"> 
+                    <div class="slot__shadow"></div>
+                    <div class="reel" id="reel"></div>
+                </div>
+            </div>
+            <div class="sunburst" id="sunburst">
+                <img src="~@images/sunburst.svg" alt="sunburst">
+            </div>
+        </div>
+        <button class="solid-button" id="draw-button">Draw</button>
+    </div>
+    <div class="settings" id="settings">
+        <div class="settings__panel" id="settings-panel">
+            <div class="settings__panel__group">
+                <h1 class="settings__title">Settings</h1>
+                <div class="input-group">
+                    <label class="input-label" for="name-list">Name List</label>
+                    <textarea
+                        class="input-field input-field--textarea"
+                        rows="8"
+                        placeholder="Separate each name by line break"
+                        id="name-list"
+                    ></textarea>
+                </div>
+                <div class="input-group input-group--2-column">
+                    <label class="input-label" for="remove-from-list">Remove winner from list</label>
+                    <label class="input--switch">
+                        <input type="checkbox" checked="true" id="remove-from-list">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="input-group input-group--2-column">
+                    <label class="input-label" for="enable-sound">Enable sound effect</label>
+                    <label class="input--switch">
+                        <input type="checkbox" checked="true" id="enable-sound">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="settings__panel__group">
+                <button class="solid-button solid-button" id="settings-save">Save</button>
+                <button class="solid-button solid-button--danger" id="settings-close">Discard and close</button>
+            </div>
+        </div>
+    </div>
+</div>
