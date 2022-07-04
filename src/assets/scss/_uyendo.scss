@@ -95,8 +95,8 @@ img {
     margin: 5.5rem 0 0;
     position: relative;
     z-index: 5;
-    padding: 0.35em 1.75em;
-    font-size: 2.1em;
+    padding: 0.4em 2em;
+    font-size: 2.5em;
     width: auto !important;
     line-height: normal;
     margin-top: 1em !important;
@@ -129,4 +129,7 @@ img {
     background: linear-gradient(180deg, #ffffff8a 0%, #ffffff29 100%);
     height: 100%;
     overflow: hidden;
+}
+.control-group{
+    right: 24px !important;
 }
