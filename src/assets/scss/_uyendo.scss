@@ -43,8 +43,6 @@ img {
         opacity: 1;
     }
 }
-.step-2 {
-}
 .logo {
     max-width: 18%;
     margin: 0 auto;
@@ -53,13 +51,21 @@ img {
     width: 41%;
 }
 .right {
-    max-width: 40%;
-    position: relative;
     text-align: center;
+    position: relative;
+    max-width: 40%;
+    height: 50vh;
+    transform: translateY(-25%);
 }
 .award {
-    max-width: 70%;
-    margin-top: -12%;
+    max-width: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: 14%;
+    transform: translateX(-50%);
+}
+.foot{
+
 }
 .main-content {
     .wrap {
@@ -74,7 +80,7 @@ img {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 20%;
+    bottom: 27%;
     button {
         cursor: pointer;
         border: none;
