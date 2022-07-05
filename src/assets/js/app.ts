@@ -42,7 +42,7 @@ import SoundEffects from '@js/SoundEffects';
     return;
   }
 
-  const soundEffects = new SoundEffects();
+  // const soundEffects = new SoundEffects();
   const MAX_REEL_ITEMS = 200;
   const CONFETTI_COLORS = ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff'];
   let confettiAnimationId;
@@ -83,14 +83,14 @@ import SoundEffects from '@js/SoundEffects';
     stopWinningAnimation();
     drawButton.disabled = true;
     settingsButton.disabled = true;
-    soundEffects.spin((MAX_REEL_ITEMS - 1) / 10);
+    // soundEffects.spin((MAX_REEL_ITEMS - 1) / 10);
   };
 
   /**  Functions to be trigger after spinning */
   const onSpinEnd = async () => {
     confettiAnimation();
     sunburstSvg.style.display = 'block';
-    await soundEffects.win();
+    // await soundEffects.win();
     drawButton.disabled = false;
     settingsButton.disabled = false;
   };
@@ -108,7 +108,8 @@ import SoundEffects from '@js/SoundEffects';
   const onSettingsOpen = () => {
     nameListTextArea.value = slot.names.length ? slot.names.join('\n') : '';
     removeNameFromListCheckbox.checked = slot.shouldRemoveWinnerFromNameList;
-    enableSoundCheckbox.checked = !soundEffects.mute;
+    // enableSoundCheckbox.checked = !soundEffects.mute;
+    enableSoundCheckbox.checked = false;
     settingsWrapper.style.display = 'block';
   };
 
@@ -156,7 +157,8 @@ import SoundEffects from '@js/SoundEffects';
       ? nameListTextArea.value.split(/\n/).filter((name) => Boolean(name.trim()))
       : [];
     slot.shouldRemoveWinnerFromNameList = removeNameFromListCheckbox.checked;
-    soundEffects.mute = !enableSoundCheckbox.checked;
+    // soundEffects.mute = !enableSoundCheckbox.checked;
+    // soundEffects.mute = true;
     onSettingsClose();
     // console.log(333, slot.names)
   });
