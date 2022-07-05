@@ -8,7 +8,9 @@
     "start": "webpack serve --open --config webpack/webpack.dev.conf.js",
     "first-release": "npx standard-version --commit-all --tag-prefix v --release-as 1.0.0 --infile CHANGELOG.md",
     "release": "npx standard-version --commit-all --tag-prefix v --infile CHANGELOG.md",
-    "extract-latest-change-log": "node scripts/extractLatestChangeLog.js"
+    "extract-latest-change-log": "node scripts/extractLatestChangeLog.js",
+    "clean-dist": "rimraf dist",
+    "clean-nm": "rimraf node_modules"
   },
   "author": "Ice Lam",
   "license": "ISC",

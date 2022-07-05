@@ -53,7 +53,7 @@ export default class Slot {
    */
   constructor(
     {
-      maxReelItems = 30,
+      maxReelItems = 80,
       removeWinner = true,
       reelContainerSelector,
       onSpinStart,
@@ -171,6 +171,8 @@ export default class Slot {
       return false;
     }
 
+    console.log(3333,this.nameList)
+
     // Shuffle names and create reel items
     let randomNames = Slot.shuffleNames<string>(this.nameList);
 
@@ -182,26 +184,27 @@ export default class Slot {
 
     const fragment = document.createDocumentFragment();
 
-    randomNames.forEach((name) => {
+    randomNames.forEach((name, index) => {
       const newReelItem = document.createElement('div');
-      newReelItem.innerHTML = name[0];
+      newReelItem.innerHTML = name[1] + ' - ' + name[0]; //format code - name. VD : 001 - Leo Leong
       newReelItem.setAttribute('data-code', name[1])
+      newReelItem.setAttribute('data-no', index.toString())
       fragment.appendChild(newReelItem);
     });
 
     reelContainer.appendChild(fragment);
-    const winner = document.querySelector("#winner")
     // console.log('Winner: ', randomNames[randomNames.length - 1][0], randomNames[randomNames.length - 1][1]);
+    
+    /*submit user winner to api*/
     let formData = new FormData();
     formData.append('code', randomNames[randomNames.length - 1][1]);
     fetch('https://ritavo-mega-depot.xyz/api/hide', {
-      method: 'POST', // or 'PUT'
+      method: 'POST', 
       body: formData,
     })
       .then(response => response.json())
       .then(data => {
         // console.log('Success:', data.data);
-
       })
       .catch((error) => {
         // console.error('Error:', error);

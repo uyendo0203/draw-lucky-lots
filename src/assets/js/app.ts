@@ -43,7 +43,7 @@ import SoundEffects from '@js/SoundEffects';
   }
 
   const soundEffects = new SoundEffects();
-  const MAX_REEL_ITEMS = 40;
+  const MAX_REEL_ITEMS = 200;
   const CONFETTI_COLORS = ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff'];
   let confettiAnimationId;
 
@@ -121,7 +121,8 @@ import SoundEffects from '@js/SoundEffects';
   // Click handler for "Draw" button
   drawButton.addEventListener('click', () => {
     if (!slot.names.length) {
-      onSettingsOpen();
+      // onSettingsOpen();
+      alert('Please Call List User')
       return;
     }
 
@@ -129,7 +130,6 @@ import SoundEffects from '@js/SoundEffects';
   });
 
   // Hide fullscreen button when it is not supported
-  // cái này u mới hide đi
   // if (!(document.documentElement.requestFullscreen && document.exitFullscreen)) {
   //   fullscreenButton.remove();
   // }
@@ -202,7 +202,6 @@ import SoundEffects from '@js/SoundEffects';
     step2?.classList.add('active')
 
     document.querySelector(".uyendo")?.classList.add('none-border')
-    loadListUser()
   };
   startRotationLuckyButton.addEventListener('click', onStartRotationLucky);
 
@@ -220,7 +219,6 @@ import SoundEffects from '@js/SoundEffects';
       document.querySelector(`#nem-1`)?.classList.add('active')
     }
 
-
     const hasActiveStep2 = document.querySelector(`.step-2`)?.classList.contains('active');
     if (hasActiveStep2) {
       document.querySelector(".uyendo")?.classList.add('none-border')
@@ -228,6 +226,7 @@ import SoundEffects from '@js/SoundEffects';
   };
   window.onload = function () {
     onLoadLuckyType()
+    loadListUser()
   };
 
 })();

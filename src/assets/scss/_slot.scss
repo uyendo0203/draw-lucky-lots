@@ -114,17 +114,17 @@
   position: relative;
   z-index: $z-index-draw-button; // make sure draw button on top of sunburst
 
-  @each $media-query, $factor in $scale-factors {
-    @media #{$media-query} {
-      width: $draw-button-width * $factor;
-      margin: $draw-button-margin-top * $factor 0 0;
-      font-size: max((1.75rem * $factor), 1rem);
-      line-height: max((1.75rem * $factor), 1rem);
-      padding: 1rem * $factor 0.625rem * $factor;
-      border-radius: 0.625rem * $factor;
-      @include shadow('large', $factor);
-    }
-  }
+  // @each $media-query, $factor in $scale-factors {
+  //   @media #{$media-query} {
+  //     width: $draw-button-width * $factor;
+  //     margin: $draw-button-margin-top * $factor 0 0;
+  //     font-size: max((1.75rem * $factor), 1rem);
+  //     line-height: max((1.75rem * $factor), 1rem);
+  //     padding: 1rem * $factor 0.625rem * $factor;
+  //     border-radius: 0.625rem * $factor;
+  //     @include shadow('large', $factor);
+  //   }
+  // }
 }
 
 .settings {
@@ -202,7 +202,7 @@
   margin: -50vh 0 0 -50vw;
   width: 100vw;
   height: 100vh;
-  display: none;
+  display: none !important; 
   z-index: $z-index-sunburst;
   pointer-events: none;
   overflow: hidden;

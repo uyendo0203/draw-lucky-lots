@@ -87,19 +87,19 @@ img {
 
 .step-2-title {
     margin: 0 auto;
-    max-width: 35%;
+    max-width: 500px;
     margin-bottom: 0.25em;
 }
 .button-custom {
     max-width: 100%;
-    margin: 5.5rem 0 0;
+    margin: 30px 0 0;
     position: relative;
     z-index: 5;
-    padding: 0.4em 2em;
-    font-size: 2.5em;
+    padding: 16px 80px;
+    font-size: 48px;
     width: auto !important;
     line-height: normal;
-    margin-top: 1em !important;
+    margin-top: 40px !important;
 }
 .step-2-logo {
     max-width: 20%;
@@ -132,4 +132,7 @@ img {
 }
 .control-group{
     right: 24px !important;
+}
+.control-group .icon-button{
+    margin: 0 auto !important;
 }
