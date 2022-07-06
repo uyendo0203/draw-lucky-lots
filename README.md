@@ -33,3 +33,10 @@ To build the project for production:
 yarn build
 ```
 All the build files can be found in `/dist` folder.
+
+### Clean
+```bash
+yarn clean-dist 
+yarn clean-nm 
+```
+clean dist folder and node_modules
